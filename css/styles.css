@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  background-color: var(--black);
+}
+
+@font-face {
+  font-family: 'Lifta';
+  src: url('WebFont/Lifta/Lifta-Black.woff') format('woff');
+  src: url('WebFont/Lifta/Lifta-Black.woff2') format('woff2');
+}
+
+* {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 13px !important;
+}
+
+.parent {
+  /* border: #becd23 dotted 5px !important; */
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.child {
+  box-sizing: border-box;
+}
+
+.paneDiv {
+  flex-grow: 0;
+  height: 100vh;
+  padding: 14px 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #161618 0%, #1d1d1f 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.paneDiv::-webkit-scrollbar {
+  width: 8px;
+}
+
+.paneDiv::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.paneDiv * :not(a) {
+  font-weight: 400 !important;
+}
+
+.canvasDiv {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  flex-grow: 2;
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+canvas {
+  /* image-rendering: optimizeSpeed; */
+  /* will-change: transform; */
+  max-width: 100% !important;
+  max-height: 100vh !important;
+  object-fit: contain !important;
+  height: 100% !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+}
+
+/*input in folder extra container*/
+.tp-fldv_c {
+  border-left: 0px !important;
+}
+
+/*input container*/
+.tp-lblv {
+  padding: 2px !important;
+  width: 300px !important;
+}
+
+.tp-sldv_k::after {
+  height: 17px !important;
+  width: 13px !important;
+  /* transform: scale(2); */
+}
+
+@media screen and (max-width: 500px) {
+  .tp-sldv_k::after {
+    height: 20px !important;
+    width: 15px !important;
+    /* transform: scale(2); */
+  }
+
+  .parent {
+    flex-direction: column-reverse !important;
+    height: 100vh !important;
+  }
+
+  .paneDiv {
+    padding-right: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+    flex-grow: 2;
+  }
+
+  .canvasDiv {
+    padding-right: 5px;
+    height: 80%;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .image-wrapper {
+    height: 100%;
+  }
+
+  .tp-lblv {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 98% !important;
+  }
+
+  /*input slider & value */
+  .tp-lblv_v {
+    flex-grow: 1 !important;
+  }
+
+  /*input label */
+  .tp-lblv_l {
+    flex-grow: 3 !important;
+  }
+}
+
+/* folder title: .tp-fldv_t */
+
+.footer {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 12px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  box-sizing: border-box;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+.footnote {
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  color: #ffffff80;
+  line-height: 1.7;
+}
+
+.footer-logo {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.footer-name {
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.15s ease;
+}
+
+.footer-version {
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.03em;
+  transition: color 0.15s ease;
+}
+
+/* Brighten the whole footnote (logo + text) to white on hover */
+.footnote:hover .footer-logo {
+  opacity: 1;
+}
+
+.footnote:hover .footer-name,
+.footnote:hover .footer-version {
+  color: rgba(255, 255, 255, 1);
+}
+
+.footnote:hover a {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+:root {
+  --white: #f5f5f7;
+  --black: #1d1d1f;
+  --accent: #00ace6;
+  --tp-base-background-color: hsla(0, 0%, 100%, 0.02);
+  --tp-base-shadow-color: hsla(0, 0%, 0%, 0.3);
+  --tp-button-background-color: var(--accent);
+  --tp-button-background-color-active: #1ec0f5;
+  --tp-button-background-color-focus: #16b5ec;
+  --tp-button-background-color-hover: #16b5ec;
+  --tp-button-foreground-color: #0b0b0c;
+  --tp-container-background-color: hsla(0, 0%, 100%, 0.04);
+  --tp-container-background-color-active: hsla(0, 0%, 100%, 0.12);
+  --tp-container-background-color-focus: hsla(0, 0%, 100%, 0.1);
+  --tp-container-background-color-hover: hsla(0, 0%, 100%, 0.08);
+  --tp-container-foreground-color: var(--white);
+  --tp-groove-foreground-color: hsla(0, 0%, 100%, 0.1);
+  --tp-input-background-color: hsla(0, 0%, 100%, 0.08);
+  --tp-input-background-color-active: hsla(0, 0%, 100%, 0.2);
+  --tp-input-background-color-focus: hsla(0, 0%, 100%, 0.16);
+  --tp-input-background-color-hover: hsla(0, 0%, 100%, 0.12);
+  --tp-input-foreground-color: hsla(0, 0%, 100%, 0.9);
+  --tp-label-foreground-color: hsla(0, 0%, 100%, 0.6);
+  --tp-monitor-background-color: hsla(0, 0%, 0%, 0.3);
+  --tp-monitor-foreground-color: hsla(0, 0%, 100%, 0.3);
+}
+
+/* ---- Tweakpane polish ---- */
+.tp-rotv {
+  --tp-blade-spacing: 6px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+/* Folder / root title bar */
+.tp-fldv_t,
+.tp-rotv_t {
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Rounded inputs and buttons */
+.tp-txtv_i,
+.tp-lstv_s,
+.tp-btnv_b,
+.tp-ckbv_i + .tp-ckbv_m,
+.tp-colswv_b {
+  border-radius: 6px !important;
+}
+
+.tp-btnv_b {
+  font-weight: 700 !important;
+  letter-spacing: 0.03em;
+  transition: background-color 0.15s ease;
+}
+
+/* Slider knob accent */
+.tp-sldv_k::after {
+  background-color: var(--accent) !important;
+}
+
+/* Subtle separation between folders */
+.tp-fldv {
+  margin-bottom: 4px;
+}
+
+/* unvisited link */
+a {
+  text-decoration: none;
+  font-weight: 700 !important;
+}
+
+a:link {
+  color: #ffffff80;
+}
+
+/* visited link */
+a:visited {
+  color: #ffffff80;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* selected link */
+a:active {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.icon {
+  fill: #ffffff80;
+}
+
+.icon:link {
+  fill: #ffffff80;
+}
+
+.icon:visited {
+  fill: #ffffff80;
+}
+
+.icon:hover {
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.icon:active {
+  fill: rgba(255, 255, 255, 0.8);
+}
